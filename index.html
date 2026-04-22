@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ordem de Carregamento - Centro Oeste Mineração</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* CABEÇALHO COM ORDEM DE CARREGAMENTO EM DESTAQUE */
+        .header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f2b44 100%);
+            padding: 30px 20px;
+            color: white;
+            text-align: center;
+            border-bottom: 4px solid #facc15;
+        }
+
+        .title-section h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .title-section p {
+            font-size: 0.8rem;
+            opacity: 0.85;
+            letter-spacing: 1px;
+        }
+
+        .logo-text {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .logo-text h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+        .logo-text p {
+            font-size: 0.65rem;
+            opacity: 0.75;
+            margin-top: 3px;
+        }
+
+        /* CAMINHÕES ANIMADOS - DA DIREITA PARA ESQUERDA */
+        .truck-animation {
+            background: #0f2b44;
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px solid #facc15;
+        }
+        .moving-truck {
+            display: inline-block;
+            font-size: 28px;
+            white-space: nowrap;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+        .truck1 {
+            animation: driveAcrossLeft 8s linear infinite;
+        }
+        .truck2 {
+            animation: driveAcrossLeft 12s linear infinite;
+            animation-delay: -4s;
+        }
+        @keyframes driveAcrossLeft {
+            0% {
+                transform: translateX(110%);
+            }
+            100% {
+                transform: translateX(-15%);
+            }
+        }
+
+        .form-body {
+            padding: 24px;
+            background: #ffffff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+        .full-width {
+            grid-column: span 2;
+        }
+        .field {
+            margin-bottom: 6px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #1e3a5f;
+            margin-bottom: 5px;
+        }
+        .required {
+            color: #e53e3e;
+            margin-left: 4px;
+        }
+        .optional {
+            color: #64748b;
+            font-weight: normal;
+            text-transform: none;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: white;
+            transition: 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #1e5f8e;
+            box-shadow: 0 0 0 3px rgba(30, 95, 142, 0.15);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 25px;
+            background: #f8fafc;
+            padding: 8px 16px;
+            border-radius: 40px;
+            border: 1px solid #e2e8f0;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            text-transform: none;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+        .radio-group input {
+            width: auto;
+            transform: scale(1.05);
+            accent-color: #1e5f8e;
+        }
+
+        .plate-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .plate-row .field {
+            flex: 1;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 11px 26px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-pdf {
+            background: linear-gradient(135deg, #1e5f8e 0%, #0f4568 100%);
+            color: white;
+            box-shadow: 0 4px 10px rgba(30, 95, 142, 0.3);
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        .btn-clear {
+            background: #e2e8f0;
+            color: #334155;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.02);
+        }
+
+        .footer {
+            font-size: 0.65rem;
+            text-align: center;
+            margin-top: 22px;
+            padding-top: 14px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .form-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .buttons, .footer, .truck-animation {
+                display: none;
+            }
+            .header {
+                background: #1e3a5f;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            input, select, textarea {
+                border: 1px solid #ccc !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .full-width {
+                grid-column: span 1;
+            }
+            .title-section h1 {
+                font-size: 1.4rem;
+            }
+            .logo-text h2 {
+                font-size: 0.9rem;
+            }
+            .moving-truck {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <!-- CABEÇALHO: ORDEM DE CARREGAMENTO EM DESTAQUE -->
+    <div class="header">
+        <div class="title-section">
+            <h1>📄 ORDEM DE CARREGAMENTO</h1>
+            <p>Documento oficial de transporte</p>
+        </div>
+        <div class="logo-text">
+            <h2>CENTRO OESTE MINERAÇÃO</h2>
+            <p>Excelência em mineração</p>
+        </div>
+    </div>
+
+    <!-- DOIS CAMINHÕES ANDANDO DA DIREITA PARA ESQUERDA -->
+    <div class="truck-animation">
+        <div class="moving-truck truck1">
+            🚛💨 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 🚛💨
+        </div>
+        <div class="moving-truck truck2">
+            🚚💨 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 🚚💨
+        </div>
+    </div>
+
+    <div class="form-body">
+        <!-- TRANSPORTE -->
+        <div class="grid-2">
+            <div class="field full-width">
+                <label>🚛 TIPO DE TRANSPORTE <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="tipoTransporte" value="Transportadora" checked> Transportadora</label>
+                    <label><input type="radio" name="tipoTransporte" value="Caminhão Próprio"> Caminhão Próprio</label>
+                </div>
+            </div>
+
+            <div id="transportadoraFields" class="full-width">
+                <div class="grid-2" style="gap: 12px;">
+                    <div class="field"><label>🏢 Nome da Transportadora</label><input type="text" id="nomeTransportadora" placeholder="Ex: Logística Rápida"></div>
+                    <div class="field"><label>📄 CNPJ da Transportadora</label><input type="text" id="cnpjTransportadora" placeholder="00.000.000/0001-00"></div>
+                </div>
+            </div>
+
+            <div class="field"><label>🔢 PLACA DO CAVALO <span class="required">*</span></label><input type="text" id="placaCavalo" placeholder="ABC1D23"></div>
+            <div class="field"><label>📍 UF</label><input type="text" id="ufPlaca" placeholder="SP" maxlength="2"></div>
+
+            <div class="full-width">
+                <div class="plate-row">
+                    <div class="field"><label>🚛 CARRETA 1</label><input type="text" id="carreta1" placeholder="Placa"></div>
+                    <div class="field"><label>🚛 CARRETA 2</label><input type="text" id="carreta2" placeholder="Placa"></div>
+                    <div class="field"><label>🚛 CARRETA 3</label><input type="text" id="carreta3" placeholder="Placa"></div>
+                </div>
+            </div>
+
+            <div class="field full-width"><label>📧 E-MAIL PARA CONTATO <span class="required">*</span></label><input type="email" id="emailTransporte" placeholder="transporte@email.com"></div>
+        </div>
+
+        <!-- MOTORISTA -->
+        <div class="grid-2">
+            <div class="field"><label>👨‍✈️ NOME DO MOTORISTA <span class="required">*</span></label><input type="text" id="motoristaNome" placeholder="Nome completo"></div>
+            <div class="field"><label>🆔 CPF <span class="required">*</span></label><input type="text" id="motoristaCpf" placeholder="000.000.000-00"></div>
+            <div class="field"><label>🎂 DATA DE NASCIMENTO</label><input type="date" id="dataNascimento"></div>
+            <div class="field"><label>📑 REGISTRO ANTT</label><input type="text" id="antt" placeholder="Número ANTT"></div>
+        </div>
+
+        <!-- CLIENTE -->
+        <div class="grid-2">
+            <div class="field"><label>🏢 CLIENTE / RAZÃO SOCIAL <span class="required">*</span></label><input type="text" id="clienteNome" placeholder="Nome do cliente"></div>
+            <div class="field"><label>🆔 CPF / CNPJ <span class="optional">(opcional)</span></label><input type="text" id="clienteDoc" placeholder="Não obrigatório"></div>
+        </div>
+
+        <!-- PEDIDO -->
+        <div class="grid-2">
+            <div class="field"><label>🔢 Nº DO PEDIDO <span class="required">*</span></label><input type="text" id="numeroPedido" placeholder="Número"></div>
+            <div class="field">
+                <label>📦 PRODUTO <span class="required">*</span></label>
+                <select id="produto">
+                    <option value="">Selecione o produto...</option>
+                    <option value="CALCARIO DOLOMITICO">🪨 CALCÁRIO DOLOMÍTICO</option>
+                    <option value="BRITA 1">🪨 BRITA 1</option>
+                    <option value="BRITA 0">🪨 BRITA 0</option>
+                    <option value="REJEITO">🪨 REJEITO</option>
+                    <option value="PO DE PEDRA">🪨 PÓ DE PEDRA</option>
+                </select>
+            </div>
+            <div class="field"><label>📅 DATA DO CARREGAMENTO <span class="required">*</span></label><input type="date" id="dataCarregamento"></div>
+            <div class="field">
+                <label>🏭 EMPRESA EMITENTE</label>
+                <input type="text" id="empresaEmitente" value="Centro Oeste Mineração" readonly style="background: #f1f5f9; font-weight: bold; color: #1e3a5f;">
+            </div>
+        </div>
+
+        <!-- OBSERVAÇÕES -->
+        <div class="field full-width">
+            <label>📝 OBSERVAÇÕES</label>
+            <textarea rows="2" id="observacoes" placeholder="Instruções especiais, lacres, horários de carregamento..."></textarea>
+        </div>
+
+        <!-- BOTÕES -->
+        <div class="buttons">
+            <button class="btn-clear" id="limparBtn">🗑️ LIMPAR</button>
+            <button class="btn-pdf" id="pdfBtn">🖨️ GERAR PDF</button>
+            <button class="btn-whatsapp" id="whatsappBtn">📱 ENVIAR VIA WHATSAPP</button>
+        </div>
+        <div class="footer">
+            ⭐ CENTRO OESTE MINERAÇÃO | Campos com * são obrigatórios | PDF em uma única página
+        </div>
+    </div>
+</div>
+
+<script>
+    // Transportadora vs Caminhão Próprio
+    const radioTransp = document.querySelector('input[value="Transportadora"]');
+    const radioProprio = document.querySelector('input[value="Caminhão Próprio"]');
+    const nomeTransp = document.getElementById('nomeTransportadora');
+    const cnpjTransp = document.getElementById('cnpjTransportadora');
+
+    function toggleTransportadora() {
+        if (radioProprio.checked) {
+            nomeTransp.disabled = true;
+            cnpjTransp.disabled = true;
+            nomeTransp.value = '';
+            cnpjTransp.value = '';
+            nomeTransp.placeholder = 'Não aplicável';
+            cnpjTransp.placeholder = 'Não aplicável';
+        } else {
+            nomeTransp.disabled = false;
+            cnpjTransp.disabled = false;
+            nomeTransp.placeholder = 'Ex: Logística Rápida';
+            cnpjTransp.placeholder = '00.000.000/0001-00';
+        }
+    }
+    radioTransp.addEventListener('change', toggleTransportadora);
+    radioProprio.addEventListener('change', toggleTransportadora);
+    toggleTransportadora();
+
+    function validarCampos() {
+        const obrigatorios = [
+            {id: 'placaCavalo', nome: 'Placa do Cavalo'},
+            {id: 'emailTransporte', nome: 'E-mail'},
+            {id: 'motoristaNome', nome: 'Nome do Motorista'},
+            {id: 'motoristaCpf', nome: 'CPF do Motorista'},
+            {id: 'clienteNome', nome: 'Nome do Cliente'},
+            {id: 'numeroPedido', nome: 'Número do Pedido'},
+            {id: 'produto', nome: 'Produto'},
+            {id: 'dataCarregamento', nome: 'Data do Carregamento'}
+        ];
+        let faltando = [];
+        for (let item of obrigatorios) {
+            const elemento = document.getElementById(item.id);
+            if (!elemento.value.trim()) {
+                faltando.push(item.nome);
+            }
+        }
+        if (faltando.length) {
+            alert('⚠️ Preencha os campos:\n' + faltando.join('\n'));
+            return false;
+        }
+        return true;
+    }
+
+    document.getElementById('limparBtn').addEventListener('click', () => {
+        if (confirm('Limpar todos os campos?')) {
+            document.querySelectorAll('input, textarea, select').forEach(el => {
+                if (el.type !== 'radio' && el.type !== 'button') el.value = '';
+            });
+            radioTransp.checked = true;
+            toggleTransportadora();
+            document.getElementById('dataCarregamento').value = new Date().toISOString().split('T')[0];
+            document.getElementById('empresaEmitente').value = 'Centro Oeste Mineração';
+            alert('✅ Formulário limpo!');
+        }
+    });
+
+    document.getElementById('pdfBtn').addEventListener('click', () => {
+        if (validarCampos()) {
+            window.print();
+        }
+    });
+
+    document.getElementById('whatsappBtn').addEventListener('click', () => {
+        if (validarCampos()) {
+            alert('📄 1º - Salve o PDF quando a impressão abrir\n📱 2º - Depois envie pelo WhatsApp\n\nClique OK para gerar o PDF');
+            window.print();
+            setTimeout(() => {
+                let numero = prompt('Digite o número do WhatsApp (com DDD):\nEx: 5511999999999', '55');
+                if (numero && numero.trim()) {
+                    let mensagem = `📄 *ORDEM DE CARREGAMENTO - CENTRO OESTE MINERAÇÃO*\n\nPedido: ${document.getElementById('numeroPedido').value}\nCliente: ${document.getElementById('clienteNome').value}\nProduto: ${document.getElementById('produto').value}\n\n✅ Segue PDF anexo.`;
+                    window.open(`https://wa.me/${numero.trim()}?text=${encodeURIComponent(mensagem)}`, '_blank');
+                }
+            }, 500);
+        }
+    });
+
+    function mascaraCpfCnpj(campo) {
+        let v = campo.value.replace(/\D/g, '');
+        if (v.length > 14) v = v.slice(0,14);
+        if (v.length <= 11) {
+            if (v.length > 9) campo.value = v.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            else if (v.length > 6) campo.value = v.replace(/(\d{3})(\d{3})(\d{3})/, '$1.$2.$3');
+            else if (v.length > 3) campo.value = v.replace(/(\d{3})(\d{3})/, '$1.$2');
+            else campo.value = v;
+        } else {
+            if (v.length > 12) campo.value = v.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+            else if (v.length > 8) campo.value = v.replace(/(\d{2})(\d{3})(\d{3})(\d{4})/, '$1.$2.$3/$4');
+            else if (v.length > 5) campo.value = v.replace(/(\d{2})(\d{3})(\d{3})/, '$1.$2.$3');
+            else if (v.length > 2) campo.value = v.replace(/(\d{2})(\d{3})/, '$1.$2');
+            else campo.value = v;
+        }
+    }
+    document.getElementById('motoristaCpf').addEventListener('input', function() { mascaraCpfCnpj(this); });
+    document.getElementById('clienteDoc').addEventListener('input', function() { mascaraCpfCnpj(this); });
+    document.getElementById('cnpjTransportadora').addEventListener('input', function() { mascaraCpfCnpj(this); });
+
+    ['placaCavalo', 'carreta1', 'carreta2', 'carreta3', 'ufPlaca'].forEach(id => {
+        document.getElementById(id).addEventListener('input', function() { this.value = this.value.toUpperCase(); });
+    });
+
+    if (!document.getElementById('dataCarregamento').value) {
+        document.getElementById('dataCarregamento').value = new Date().toISOString().split('T')[0];
+    }
+</script>
+</body>
+</html>
