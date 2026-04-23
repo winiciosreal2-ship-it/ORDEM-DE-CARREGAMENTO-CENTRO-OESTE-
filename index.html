@@ -102,18 +102,17 @@
             background: #ffffff;
         }
 
-        /* GRID MAIS COMPACTO */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;  /* reduzido de 18px para 12px */
-            margin-bottom: 12px; /* reduzido de 18px para 12px */
+            gap: 12px;
+            margin-bottom: 12px;
         }
         .full-width {
             grid-column: span 2;
         }
         .field {
-            margin-bottom: 4px; /* reduzido para aproximar campos */
+            margin-bottom: 4px;
         }
 
         label {
@@ -137,7 +136,7 @@
 
         input, select {
             width: 100%;
-            padding: 8px 10px;  /* padding reduzido para altura menor */
+            padding: 8px 10px;
             font-size: 0.85rem;
             border: 1.5px solid #e2e8f0;
             border-radius: 10px;
@@ -317,7 +316,10 @@
                 </div>
             </div>
 
-            <!-- CLIENTE logo abaixo, sem espaço extra -->
+            <!-- E-MAIL PARA CONTATO AGORA AQUI (ANTES DO CLIENTE) -->
+            <div class="field full-width"><label>📧 E-MAIL PARA CONTATO <span class="required">*</span></label><input type="email" id="emailTransporte" placeholder="transporte@email.com"></div>
+
+            <!-- CLIENTE -->
             <div class="field"><label>🏢 CLIENTE / RAZÃO SOCIAL <span class="required">*</span></label><input type="text" id="clienteNome" placeholder="Nome do cliente"></div>
             <div class="field"><label>🆔 CPF / CNPJ <span class="optional">(opcional)</span></label><input type="text" id="clienteDoc" placeholder="Não obrigatório"></div>
 
@@ -331,8 +333,6 @@
                     <div class="field"><label>🚛 CARRETA 3</label><input type="text" id="carreta3" placeholder="Placa"></div>
                 </div>
             </div>
-
-            <div class="field full-width"><label>📧 E-MAIL PARA CONTATO <span class="required">*</span></label><input type="email" id="emailTransporte" placeholder="transporte@email.com"></div>
         </div>
 
         <!-- DADOS DO MOTORISTA -->
@@ -483,25 +483,31 @@
             <body>
                 <div class="header"><h1>ORDEM DE CARREGAMENTO</h1><div class="empresa">CENTRO OESTE MINERAÇÃO</div><div class="contato">📞 (65) 99950-5293 | ✉️ expedicao@centrooestemineracao.com.br</div></div>
                 <div class="section-title">🚛 DADOS DO TRANSPORTE</div>
-                <table>(<th width="30%">Tipo</th><td>${tipoTransporte}</td></tr>
-                ${nomeTransportadora ? `<tr><th>Transportadora</th><td>${nomeTransportadora}${cnpjTransportadora ? ` - CNPJ: ${cnpjTransportadora}` : ''}</td></tr>` : ''}
-                <tr><th>Placa Cavalo</th><td>${placaCavalo} ${ufPlaca ? `- ${ufPlaca}` : ''}</td></tr>
-                <tr><th>Carretas</th><td>${[carreta1, carreta2, carreta3].filter(p => p).join(' / ') || 'Não informado'}</td></tr>
-                <tr><th>E-mail contato</th><td>${emailTransporte}</td></tr>
+                <table>
+                    <th width="30%">Tipo</th><td>${tipoTransporte}</td>
+                    ${nomeTransportadora ? `<tr><th>Transportadora</th><td>${nomeTransportadora}${cnpjTransportadora ? ` - CNPJ: ${cnpjTransportadora}` : ''}</td></tr>` : ''}
+                    <tr><th>Placa Cavalo</th><td>${placaCavalo} ${ufPlaca ? `- ${ufPlaca}` : ''}</td></tr>
+                    <tr><th>Carretas</th><td>${[carreta1, carreta2, carreta3].filter(p => p).join(' / ') || 'Não informado'}</td></tr>
+                    <tr><th>E-mail contato</th><td>${emailTransporte}</td></tr>
                 </table>
                 <div class="section-title">🏢 DADOS DO CLIENTE</div>
-                <table>(<th width="30%">Cliente</th><td>${clienteNome}</td></tr>
-                ${clienteDoc ? `<tr><th>CPF/CNPJ</th><td>${clienteDoc}</td></tr>` : ''}</table>
+                <table>
+                    <th width="30%">Cliente</th><td>${clienteNome}</td>
+                    ${clienteDoc ? `<tr><th>CPF/CNPJ</th><td>${clienteDoc}</td></tr>` : ''}
+                </table>
                 <div class="section-title">👨‍✈️ DADOS DO MOTORISTA</div>
-                <tr><th width="30%">Nome</th><td>${motoristaNome}</td></tr>
-                <tr><th>CPF</th><td>${motoristaCpf}</td></tr>
-                ${dataNascimento ? `<tr><th>Data Nasc.</th><td>${dataNascimento}</td></tr>` : ''}
-                ${antt ? `<tr><th>Registro ANTT</th><td>${antt}</td></tr>` : ''}</table>
+                <table>
+                    <th width="30%">Nome</th><td>${motoristaNome}</td>
+                    <tr><th>CPF</th><td>${motoristaCpf}</td></tr>
+                    ${dataNascimento ? `<tr><th>Data Nasc.</th><td>${dataNascimento}</td></tr>` : ''}
+                    ${antt ? `<tr><th>Registro ANTT</th><td>${antt}</td></tr>` : ''}
+                </table>
                 <div class="section-title">📦 DADOS DO PEDIDO</div>
-                <tr><th width="30%">Nº Pedido</th><td>${numeroPedido}</td></tr>
-                <tr><th>Produto</th><td>${produto}</td></tr>
-                <tr><th>Data Carregamento</th><td>${dataCarregamento}</td></tr>
-                <tr><th>Empresa Emitente</th><td>${empresaEmitente}</td></tr>
+                <table>
+                    <th width="30%">Nº Pedido</th><td>${numeroPedido}</td>
+                    <tr><th>Produto</th><td>${produto}</td></tr>
+                    <tr><th>Data Carregamento</th><td>${dataCarregamento}</td></tr>
+                    <tr><th>Empresa Emitente</th><td>${empresaEmitente}</td></tr>
                 </table>
                 <div class="footer">Documento gerado eletronicamente - Centro Oeste Mineração</div>
             </body></html>
