@@ -27,10 +27,9 @@
             overflow: hidden;
         }
 
-        /* CABEÇALHO COM ORDEM DE CARREGAMENTO EM DESTAQUE */
         .header {
             background: linear-gradient(135deg, #1e3a5f 0%, #0f2b44 100%);
-            padding: 30px 20px;
+            padding: 25px 20px;
             color: white;
             text-align: center;
             border-bottom: 4px solid #facc15;
@@ -43,11 +42,6 @@
             margin-bottom: 8px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        .title-section p {
-            font-size: 0.8rem;
-            opacity: 0.85;
-            letter-spacing: 1px;
-        }
 
         .logo-text {
             margin-top: 12px;
@@ -55,21 +49,28 @@
             border-top: 1px solid rgba(255,255,255,0.2);
         }
         .logo-text h2 {
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 1.1rem;
+            font-weight: 600;
             letter-spacing: 2px;
-            opacity: 0.9;
         }
-        .logo-text p {
-            font-size: 0.65rem;
-            opacity: 0.75;
-            margin-top: 3px;
+        .contact-info {
+            font-size: 0.7rem;
+            margin-top: 8px;
+            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        /* CAMINHÕES ANIMADOS - DA DIREITA PARA ESQUERDA */
         .truck-animation {
             background: #0f2b44;
-            padding: 10px 0;
+            padding: 8px 0;
             overflow: hidden;
             position: relative;
             border-bottom: 1px solid #facc15;
@@ -97,21 +98,22 @@
         }
 
         .form-body {
-            padding: 24px;
+            padding: 20px;
             background: #ffffff;
         }
 
+        /* GRID MAIS COMPACTO */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-bottom: 18px;
+            gap: 12px;  /* reduzido de 18px para 12px */
+            margin-bottom: 12px; /* reduzido de 18px para 12px */
         }
         .full-width {
             grid-column: span 2;
         }
         .field {
-            margin-bottom: 6px;
+            margin-bottom: 4px; /* reduzido para aproximar campos */
         }
 
         label {
@@ -119,9 +121,9 @@
             font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.5px;
             color: #1e3a5f;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         .required {
             color: #e53e3e;
@@ -133,26 +135,26 @@
             text-transform: none;
         }
 
-        input, select, textarea {
+        input, select {
             width: 100%;
-            padding: 10px 12px;
-            font-size: 0.9rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            padding: 8px 10px;  /* padding reduzido para altura menor */
+            font-size: 0.85rem;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
             background: white;
             transition: 0.2s;
         }
-        input:focus, select:focus, textarea:focus {
+        input:focus, select:focus {
             outline: none;
             border-color: #1e5f8e;
-            box-shadow: 0 0 0 3px rgba(30, 95, 142, 0.15);
+            box-shadow: 0 0 0 2px rgba(30, 95, 142, 0.15);
         }
 
         .radio-group {
             display: flex;
             gap: 25px;
             background: #f8fafc;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 40px;
             border: 1px solid #e2e8f0;
         }
@@ -173,7 +175,7 @@
 
         .plate-row {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
         .plate-row .field {
@@ -183,12 +185,12 @@
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 18px;
-            margin-top: 28px;
+            gap: 15px;
+            margin-top: 20px;
             flex-wrap: wrap;
         }
         button {
-            padding: 11px 26px;
+            padding: 10px 22px;
             border: none;
             border-radius: 40px;
             font-weight: 700;
@@ -204,9 +206,10 @@
             color: white;
             box-shadow: 0 4px 10px rgba(30, 95, 142, 0.3);
         }
-        .btn-whatsapp {
-            background: #25D366;
+        .btn-word {
+            background: #2b5797;
             color: white;
+            box-shadow: 0 4px 10px rgba(43, 87, 151, 0.3);
         }
         .btn-clear {
             background: #e2e8f0;
@@ -220,8 +223,8 @@
         .footer {
             font-size: 0.65rem;
             text-align: center;
-            margin-top: 22px;
-            padding-top: 14px;
+            margin-top: 16px;
+            padding-top: 12px;
             border-top: 1px solid #e2e8f0;
             color: #64748b;
         }
@@ -243,7 +246,7 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            input, select, textarea {
+            input, select {
                 border: 1px solid #ccc !important;
             }
         }
@@ -251,7 +254,7 @@
         @media (max-width: 640px) {
             .grid-2 {
                 grid-template-columns: 1fr;
-                gap: 12px;
+                gap: 10px;
             }
             .full-width {
                 grid-column: span 1;
@@ -265,24 +268,28 @@
             .moving-truck {
                 font-size: 22px;
             }
+            .contact-info {
+                font-size: 0.6rem;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
 <div class="form-container">
-    <!-- CABEÇALHO: ORDEM DE CARREGAMENTO EM DESTAQUE -->
     <div class="header">
         <div class="title-section">
             <h1>📄 ORDEM DE CARREGAMENTO</h1>
-            <p>Documento oficial de transporte</p>
         </div>
         <div class="logo-text">
             <h2>CENTRO OESTE MINERAÇÃO</h2>
-            <p>Excelência em mineração</p>
+            <div class="contact-info">
+                <span>📞 (65) 99950-5293</span>
+                <span>✉️ expedicao@centrooestemineracao.com.br</span>
+            </div>
         </div>
     </div>
 
-    <!-- DOIS CAMINHÕES ANDANDO DA DIREITA PARA ESQUERDA -->
     <div class="truck-animation">
         <div class="moving-truck truck1">
             🚛💨 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 🚛💨
@@ -293,7 +300,7 @@
     </div>
 
     <div class="form-body">
-        <!-- TRANSPORTE -->
+        <!-- DADOS DO TRANSPORTE -->
         <div class="grid-2">
             <div class="field full-width">
                 <label>🚛 TIPO DE TRANSPORTE <span class="required">*</span></label>
@@ -304,11 +311,15 @@
             </div>
 
             <div id="transportadoraFields" class="full-width">
-                <div class="grid-2" style="gap: 12px;">
+                <div class="grid-2" style="gap: 10px;">
                     <div class="field"><label>🏢 Nome da Transportadora</label><input type="text" id="nomeTransportadora" placeholder="Ex: Logística Rápida"></div>
                     <div class="field"><label>📄 CNPJ da Transportadora</label><input type="text" id="cnpjTransportadora" placeholder="00.000.000/0001-00"></div>
                 </div>
             </div>
+
+            <!-- CLIENTE logo abaixo, sem espaço extra -->
+            <div class="field"><label>🏢 CLIENTE / RAZÃO SOCIAL <span class="required">*</span></label><input type="text" id="clienteNome" placeholder="Nome do cliente"></div>
+            <div class="field"><label>🆔 CPF / CNPJ <span class="optional">(opcional)</span></label><input type="text" id="clienteDoc" placeholder="Não obrigatório"></div>
 
             <div class="field"><label>🔢 PLACA DO CAVALO <span class="required">*</span></label><input type="text" id="placaCavalo" placeholder="ABC1D23"></div>
             <div class="field"><label>📍 UF</label><input type="text" id="ufPlaca" placeholder="SP" maxlength="2"></div>
@@ -324,7 +335,7 @@
             <div class="field full-width"><label>📧 E-MAIL PARA CONTATO <span class="required">*</span></label><input type="email" id="emailTransporte" placeholder="transporte@email.com"></div>
         </div>
 
-        <!-- MOTORISTA -->
+        <!-- DADOS DO MOTORISTA -->
         <div class="grid-2">
             <div class="field"><label>👨‍✈️ NOME DO MOTORISTA <span class="required">*</span></label><input type="text" id="motoristaNome" placeholder="Nome completo"></div>
             <div class="field"><label>🆔 CPF <span class="required">*</span></label><input type="text" id="motoristaCpf" placeholder="000.000.000-00"></div>
@@ -332,13 +343,7 @@
             <div class="field"><label>📑 REGISTRO ANTT</label><input type="text" id="antt" placeholder="Número ANTT"></div>
         </div>
 
-        <!-- CLIENTE -->
-        <div class="grid-2">
-            <div class="field"><label>🏢 CLIENTE / RAZÃO SOCIAL <span class="required">*</span></label><input type="text" id="clienteNome" placeholder="Nome do cliente"></div>
-            <div class="field"><label>🆔 CPF / CNPJ <span class="optional">(opcional)</span></label><input type="text" id="clienteDoc" placeholder="Não obrigatório"></div>
-        </div>
-
-        <!-- PEDIDO -->
+        <!-- DADOS DO PEDIDO -->
         <div class="grid-2">
             <div class="field"><label>🔢 Nº DO PEDIDO <span class="required">*</span></label><input type="text" id="numeroPedido" placeholder="Número"></div>
             <div class="field">
@@ -359,26 +364,18 @@
             </div>
         </div>
 
-        <!-- OBSERVAÇÕES -->
-        <div class="field full-width">
-            <label>📝 OBSERVAÇÕES</label>
-            <textarea rows="2" id="observacoes" placeholder="Instruções especiais, lacres, horários de carregamento..."></textarea>
-        </div>
-
-        <!-- BOTÕES -->
         <div class="buttons">
             <button class="btn-clear" id="limparBtn">🗑️ LIMPAR</button>
             <button class="btn-pdf" id="pdfBtn">🖨️ GERAR PDF</button>
-            <button class="btn-whatsapp" id="whatsappBtn">📱 ENVIAR VIA WHATSAPP</button>
+            <button class="btn-word" id="wordBtn">📄 GERAR WORD</button>
         </div>
         <div class="footer">
-            ⭐ CENTRO OESTE MINERAÇÃO | Campos com * são obrigatórios | PDF em uma única página
+            ⭐ CENTRO OESTE MINERAÇÃO | Campos com * são obrigatórios
         </div>
     </div>
 </div>
 
 <script>
-    // Transportadora vs Caminhão Próprio
     const radioTransp = document.querySelector('input[value="Transportadora"]');
     const radioProprio = document.querySelector('input[value="Caminhão Próprio"]');
     const nomeTransp = document.getElementById('nomeTransportadora');
@@ -430,7 +427,7 @@
 
     document.getElementById('limparBtn').addEventListener('click', () => {
         if (confirm('Limpar todos os campos?')) {
-            document.querySelectorAll('input, textarea, select').forEach(el => {
+            document.querySelectorAll('input, select').forEach(el => {
                 if (el.type !== 'radio' && el.type !== 'button') el.value = '';
             });
             radioTransp.checked = true;
@@ -442,23 +439,83 @@
     });
 
     document.getElementById('pdfBtn').addEventListener('click', () => {
-        if (validarCampos()) {
-            window.print();
-        }
+        if (validarCampos()) window.print();
     });
 
-    document.getElementById('whatsappBtn').addEventListener('click', () => {
-        if (validarCampos()) {
-            alert('📄 1º - Salve o PDF quando a impressão abrir\n📱 2º - Depois envie pelo WhatsApp\n\nClique OK para gerar o PDF');
-            window.print();
-            setTimeout(() => {
-                let numero = prompt('Digite o número do WhatsApp (com DDD):\nEx: 5511999999999', '55');
-                if (numero && numero.trim()) {
-                    let mensagem = `📄 *ORDEM DE CARREGAMENTO - CENTRO OESTE MINERAÇÃO*\n\nPedido: ${document.getElementById('numeroPedido').value}\nCliente: ${document.getElementById('clienteNome').value}\nProduto: ${document.getElementById('produto').value}\n\n✅ Segue PDF anexo.`;
-                    window.open(`https://wa.me/${numero.trim()}?text=${encodeURIComponent(mensagem)}`, '_blank');
-                }
-            }, 500);
-        }
+    document.getElementById('wordBtn').addEventListener('click', () => {
+        if (!validarCampos()) return;
+
+        const tipoTransporte = document.querySelector('input[name="tipoTransporte"]:checked').value;
+        const nomeTransportadora = document.getElementById('nomeTransportadora').value;
+        const cnpjTransportadora = document.getElementById('cnpjTransportadora').value;
+        const placaCavalo = document.getElementById('placaCavalo').value;
+        const ufPlaca = document.getElementById('ufPlaca').value;
+        const carreta1 = document.getElementById('carreta1').value;
+        const carreta2 = document.getElementById('carreta2').value;
+        const carreta3 = document.getElementById('carreta3').value;
+        const emailTransporte = document.getElementById('emailTransporte').value;
+        const motoristaNome = document.getElementById('motoristaNome').value;
+        const motoristaCpf = document.getElementById('motoristaCpf').value;
+        const dataNascimento = document.getElementById('dataNascimento').value;
+        const antt = document.getElementById('antt').value;
+        const clienteNome = document.getElementById('clienteNome').value;
+        const clienteDoc = document.getElementById('clienteDoc').value;
+        const numeroPedido = document.getElementById('numeroPedido').value;
+        const produto = document.getElementById('produto').value;
+        const dataCarregamento = document.getElementById('dataCarregamento').value;
+        const empresaEmitente = document.getElementById('empresaEmitente').value;
+
+        const conteudo = `
+            <html>
+            <head><meta charset="UTF-8"><title>Ordem de Carregamento ${numeroPedido}</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 40px; }
+                h1 { color: #1e3a5f; text-align: center; }
+                .header { text-align: center; margin-bottom: 30px; }
+                .empresa { font-size: 18px; font-weight: bold; }
+                .contato { font-size: 12px; color: #555; margin-top: 5px; }
+                table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                th, td { border: 1px solid #ccc; padding: 8px; vertical-align: top; }
+                th { background: #1e3a5f; color: white; text-align: left; }
+                .section-title { background: #facc15; padding: 5px; font-weight: bold; margin-top: 20px; }
+                .footer { margin-top: 30px; font-size: 10px; text-align: center; color: #777; }
+            </style></head>
+            <body>
+                <div class="header"><h1>ORDEM DE CARREGAMENTO</h1><div class="empresa">CENTRO OESTE MINERAÇÃO</div><div class="contato">📞 (65) 99950-5293 | ✉️ expedicao@centrooestemineracao.com.br</div></div>
+                <div class="section-title">🚛 DADOS DO TRANSPORTE</div>
+                <table>(<th width="30%">Tipo</th><td>${tipoTransporte}</td></tr>
+                ${nomeTransportadora ? `<tr><th>Transportadora</th><td>${nomeTransportadora}${cnpjTransportadora ? ` - CNPJ: ${cnpjTransportadora}` : ''}</td></tr>` : ''}
+                <tr><th>Placa Cavalo</th><td>${placaCavalo} ${ufPlaca ? `- ${ufPlaca}` : ''}</td></tr>
+                <tr><th>Carretas</th><td>${[carreta1, carreta2, carreta3].filter(p => p).join(' / ') || 'Não informado'}</td></tr>
+                <tr><th>E-mail contato</th><td>${emailTransporte}</td></tr>
+                </table>
+                <div class="section-title">🏢 DADOS DO CLIENTE</div>
+                <table>(<th width="30%">Cliente</th><td>${clienteNome}</td></tr>
+                ${clienteDoc ? `<tr><th>CPF/CNPJ</th><td>${clienteDoc}</td></tr>` : ''}</table>
+                <div class="section-title">👨‍✈️ DADOS DO MOTORISTA</div>
+                <tr><th width="30%">Nome</th><td>${motoristaNome}</td></tr>
+                <tr><th>CPF</th><td>${motoristaCpf}</td></tr>
+                ${dataNascimento ? `<tr><th>Data Nasc.</th><td>${dataNascimento}</td></tr>` : ''}
+                ${antt ? `<tr><th>Registro ANTT</th><td>${antt}</td></tr>` : ''}</table>
+                <div class="section-title">📦 DADOS DO PEDIDO</div>
+                <tr><th width="30%">Nº Pedido</th><td>${numeroPedido}</td></tr>
+                <tr><th>Produto</th><td>${produto}</td></tr>
+                <tr><th>Data Carregamento</th><td>${dataCarregamento}</td></tr>
+                <tr><th>Empresa Emitente</th><td>${empresaEmitente}</td></tr>
+                </table>
+                <div class="footer">Documento gerado eletronicamente - Centro Oeste Mineração</div>
+            </body></html>
+        `;
+
+        const blob = new Blob([conteudo], { type: 'application/msword' });
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        link.href = url;
+        link.download = `Ordem_Carregamento_${numeroPedido}.doc`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
     });
 
     function mascaraCpfCnpj(campo) {
@@ -484,7 +541,6 @@
     ['placaCavalo', 'carreta1', 'carreta2', 'carreta3', 'ufPlaca'].forEach(id => {
         document.getElementById(id).addEventListener('input', function() { this.value = this.value.toUpperCase(); });
     });
-
     if (!document.getElementById('dataCarregamento').value) {
         document.getElementById('dataCarregamento').value = new Date().toISOString().split('T')[0];
     }
